@@ -73,6 +73,17 @@ h1 {
   flex: 1;
 }
 
+a {
+  text-decoration: none;
+  color: var(--gris2);
+}
+.enlace-cuenta {
+  margin-top: 2rem;
+  display: block;
+  opacity: .7;
+}
+
+
 /*Tareas*/
 .sombra-dark {
   -webkit-box-shadow: 0px 6px 11px -8px rgba(0,0,0,0.9);

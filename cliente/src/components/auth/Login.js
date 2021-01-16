@@ -1,9 +1,31 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const Login = () => {
     
-    const onChange = () => {
+    //State para el inicio de sesión
+    const [ user, saveUser] = useState({
+        email: '',
+        password: ''
+    });
 
+    //Extraemos el usuario
+    const { email, password } = user;
+
+    const onChange = e => {
+       saveUser({
+           ...user,
+            [e.target.name] : e.target.value
+       })
+    }
+
+    //Iniciar sesión
+    const onSubmit = e => {
+        e.preventDefault();
+
+        //Validación
+
+        //Pasarlo al action
     }
     
     return ( 
@@ -20,6 +42,7 @@ const Login = () => {
                             id="email"
                             name="email"
                             placeholder="email@live.com"
+                            value={email}
                             onChange={onChange}
                         />
                     </div>
@@ -31,6 +54,7 @@ const Login = () => {
                             id="password"
                             name="password"
                             placeholder="Password"
+                            value={password}
                             onChange={onChange}
                         />
                     </div>
@@ -42,8 +66,11 @@ const Login = () => {
                             value="Iniciar Sesión"
                         />
                     </div>
-
                 </form>
+
+                <Link to={'/new-account'} className="enlace-cuenta">
+                    Crear una cuenta
+                </Link>
             </div>
         </div>
      );
