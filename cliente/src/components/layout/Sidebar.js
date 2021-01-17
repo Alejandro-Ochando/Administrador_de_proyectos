@@ -1,0 +1,15 @@
+import React from 'react';
+
+const Sidebar = () => {
+    return ( 
+        <aside>
+            <h1>Administrador de <span>Proyectos</span></h1>
+
+            <div>
+                <h2>Tus Proyectos</h2>
+            </div>
+        </aside>
+     );
+}
+ 
+export default Sidebar;
