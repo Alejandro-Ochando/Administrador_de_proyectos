@@ -11,7 +11,7 @@ const Projects = () => {
             <div className="seccion-principal">
                 <main>
                     <div className="contenedor-tareas">
-
+                        <h3>Aqui muestro las tareas</h3>
                     </div>
                 </main>
             </div>
