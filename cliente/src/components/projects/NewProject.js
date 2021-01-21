@@ -1,7 +1,13 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, useState, useContext } from 'react';
+import projectContext from '../../context/projects/projectContext';
 
 const NewProject = () => {
     
+
+    //Obtener el State del formulario 
+    const projectsContext = useContext(projectContext);
+    const { form } = projectsContext;
+
     //State para el Project
     const [project, saveProject ] = useState({
         name: ''
@@ -37,26 +43,33 @@ const NewProject = () => {
                 className="btn btn-block btn-primario"
             > Nuevo Proyecto </button>
 
-            <form
-                className="formulario-nuevo-proyecto"
-                onSubmit={handlerSend}
-            >
-                <input
-                    type="text"
-                    className="input-text"
-                    placeholder="Nombre Proyecto"
-                    name="name"
-                    value={name}
-                    onChange={onChangeProject}
-                />
+            { form 
+                ?
+                    (
+                        <form
+                            className="formulario-nuevo-proyecto"
+                            onSubmit={handlerSend}
+                        >
+                            <input
+                                type="text"
+                                className="input-text"
+                                placeholder="Nombre Proyecto"
+                                name="name"
+                                value={name}
+                                onChange={onChangeProject}
+                            />
 
-                <input
-                    type="submit"
-                    className=" btn btn-primario btn-block"
-                    value="Agregar Proyecto"
-                />
+                            <input
+                                type="submit"
+                                className=" btn btn-primario btn-block"
+                                value="Agregar Proyecto"
+                        />
 
-            </form>
+                        </form>
+                     )
+                :
+                    null
+            }
         </Fragment>
         
 

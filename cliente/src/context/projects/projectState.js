@@ -5,7 +5,7 @@ import projectReducer from './projectReducer';
 
 const ProjectState =  props => {
     const initialState = {
-        formulario: false
+        form: false
     }
 
     //Dispatch para ejecutar las acciones
@@ -17,7 +17,7 @@ const ProjectState =  props => {
 
         <projectContext.Provider
             value={{
-                formulario: state.formulario
+                form: state.form
             }}
         >
             {props.children}
