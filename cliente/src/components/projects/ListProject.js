@@ -1,19 +1,21 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Project from './Project';
+import projectContext from '../../context/projects/projectContext';
 
 const ListProject = () => {
-    
-    //Provando el flujo de datos con este array
-    const projects = [
-        {name: 'Web con Laravel'},
-        {name: 'Administrador con React'},
-        {name: 'MERN Stack'}
-    ]
-    
+
+    //Extraer proyectos de state incial
+    const projectsContext = useContext(projectContext);
+    const { projects } = projectsContext;
+
+    //Revisar si hay contenidos
+    if(projects.length === 0 ) return null;
+
     return ( 
         <ul className="listado-proyectos">
             {projects.map(project =>(
                 <Project 
+                    key={project.id}
                     project={project}
                 />
             ))}
