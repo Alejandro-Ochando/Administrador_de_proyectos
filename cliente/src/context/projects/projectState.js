@@ -8,7 +8,8 @@ import {
     FORM_PROJECT, 
     GET_PROJECTS,
     ADD_PROJECT,
-    VALIDATE_FORM 
+    VALIDATE_FORM,
+    PROJECT_CURRENT
 } from '../../types';
 
 
@@ -23,7 +24,8 @@ const ProjectState =  props => {
     const initialState = {
         projects : [],
         form: false,
-        errorform: false
+        errorform: false,
+        project: null
     }
 
     //Dispatch para ejecutar las acciones
@@ -63,6 +65,14 @@ const ProjectState =  props => {
         })
     }
 
+    //Selecciona el proyecto que el usuario selecciona
+    const projectCurrent = projectId => {
+        dispatch({
+            type: PROJECT_CURRENT,
+            payload: projectId
+        })
+    }
+
 
     return(
 
@@ -71,10 +81,12 @@ const ProjectState =  props => {
                 projects: state.projects, 
                 form: state.form,
                 errorform: state.errorform,
+                project: state.project,
                 showForm,
                 getProjects,
                 addProject,
-                showError
+                showError,
+                projectCurrent
             }}
         >
             {props.children}
