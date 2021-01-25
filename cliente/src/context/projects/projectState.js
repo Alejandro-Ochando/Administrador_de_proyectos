@@ -7,7 +7,8 @@ import projectReducer from './projectReducer';
 import { 
     FORM_PROJECT, 
     GET_PROJECTS,
-    ADD_PROJECT 
+    ADD_PROJECT,
+    VALIDATE_FORM 
 } from '../../types';
 
 
@@ -21,7 +22,8 @@ const ProjectState =  props => {
 
     const initialState = {
         projects : [],
-        form: false
+        form: false,
+        errorform: false
     }
 
     //Dispatch para ejecutar las acciones
@@ -54,6 +56,13 @@ const ProjectState =  props => {
         })
     }
 
+    //Valida el formulario por error
+    const showError = () => {
+        dispatch({
+            type: VALIDATE_FORM
+        })
+    }
+
 
     return(
 
@@ -61,9 +70,11 @@ const ProjectState =  props => {
             value={{
                 projects: state.projects, 
                 form: state.form,
+                errorform: state.errorform,
                 showForm,
                 getProjects,
-                addProject
+                addProject,
+                showError
             }}
         >
             {props.children}
