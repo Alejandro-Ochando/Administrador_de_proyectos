@@ -5,20 +5,22 @@ import TaskReducer from '../task/taskReducer';
 import { 
     TASK_PROJECT 
 } from '../../types/index';
-import Project from '../../components/projects/Project';
 
 const TaskState = props => {
     const initialState = {
         tasks: [
             {name: 'Agregar el front', estate: true, projectId: 1 },
+            {name: 'Agregar el front', estate: true, projectId: 1 },
             {name: 'Agregar el bakend', estate: true, projectId: 2 },
             {name: 'Testing app', estate: false, projectId: 3 },
             {name: 'Deploy', estate: false, projectId: 4 },
+            {name: 'Agregar el front', estate: true, projectId: 1 },
             {name: 'Agregar el front', estate: true, projectId: 1 },
             {name: 'Agregar el bakend', estate: true, projectId: 2 },
             {name: 'Testing app', estate: false, projectId: 3 },
             {name: 'Deploy', estate: false, projectId: 4 }
         ],
+        tasksproject: null
     }
 
     //Crear dispatch y state
@@ -38,6 +40,7 @@ const TaskState = props => {
         <taskContext.Provider
             value={{
                 tasks: state.tasks,
+                tasksproject: state.tasksproject,
                 getTasks
             }}
         >
