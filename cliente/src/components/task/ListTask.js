@@ -15,12 +15,7 @@ const ListTask = () => {
     //Array destructuring para extraer el proyecto actual
     const [projectCurrent] = project;
 
-    const task = [
-        {name: 'Agregar el front', estate: true },
-        {name: 'Agregar el bakend', estate: true },
-        {name: 'Testing app', estate: false },
-        {name: 'Deploy', estate: false }
-    ];
+    const task = [];
 
     //Elimina un proyecto
     const onClickDelete = () => {

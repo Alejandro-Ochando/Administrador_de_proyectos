@@ -4,14 +4,23 @@ import TaskReducer from '../task/taskReducer';
 
 const TaskState = props => {
     const initialState = {
-        tasks: [],
+        tasks: [
+            {name: 'Agregar el front', estate: true, projectId: 1 },
+            {name: 'Agregar el bakend', estate: true, projectId: 2 },
+            {name: 'Testing app', estate: false, projectId: 3 },
+            {name: 'Deploy', estate: false, projectId: 4 }
+        ],
     }
 
     //Crear dispatch y state
     const [ state, dispatch ] = useReducer(TaskReducer, initialState)
 
     return (
-        <TaskContext.Provider>
+        <TaskContext.Provider
+            value={{
+                tasks: state.tasks
+            }}
+        >
             {props.children}
         </TaskContext.Provider>
         )
