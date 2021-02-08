@@ -3,7 +3,8 @@ import taskContext from '../task/taskContext';
 import TaskReducer from '../task/taskReducer';
 
 import { 
-    TASK_PROJECT 
+    TASK_PROJECT,
+    ADD_TASK 
 } from '../../types/index';
 
 const TaskState = props => {
@@ -36,12 +37,21 @@ const TaskState = props => {
         })
     }
 
+    // Agregar una tarea al proyecto seleccionado
+    const addTask = task => {
+        dispatch({
+            type: ADD_TASK,
+            payload: task
+        })
+    }
+
     return (
         <taskContext.Provider
             value={{
                 tasks: state.tasks,
                 tasksproject: state.tasksproject,
-                getTasks
+                getTasks,
+                addTask
             }}
         >
             {props.children}
