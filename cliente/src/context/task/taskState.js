@@ -4,7 +4,8 @@ import TaskReducer from '../task/taskReducer';
 
 import { 
     TASK_PROJECT,
-    ADD_TASK 
+    ADD_TASK,
+    VALIDATE_TASK 
 } from '../../types/index';
 
 const TaskState = props => {
@@ -21,7 +22,8 @@ const TaskState = props => {
             {name: 'Testing app', estate: false, projectId: 3 },
             {name: 'Deploy', estate: false, projectId: 4 }
         ],
-        tasksproject: null
+        tasksproject: null,
+        errortask: false
     }
 
     //Crear dispatch y state
@@ -45,13 +47,22 @@ const TaskState = props => {
         })
     }
 
+    // Valida y muestra un error 
+    const validateTask = () => {
+        dispatch({
+            type: VALIDATE_TASK
+        })
+    }
+
     return (
         <taskContext.Provider
             value={{
                 tasks: state.tasks,
                 tasksproject: state.tasksproject,
+                errortask: state.errortask,
                 getTasks,
-                addTask
+                addTask,
+                validateTask
             }}
         >
             {props.children}
