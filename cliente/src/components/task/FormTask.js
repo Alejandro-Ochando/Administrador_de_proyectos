@@ -16,7 +16,6 @@ const FormTask = () => {
     useEffect(() => {
         if( taskselect !== null ) {
             saveTask(taskselect);
-            console.log(taskselect);
         }else{
             saveTask({
                 name: ''
