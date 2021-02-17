@@ -1,5 +1,6 @@
 import { 
     ADD_TASK,
+    DELETE_TASK,
     TASK_PROJECT,
     VALIDATE_TASK,
 } from '../../types/index';
@@ -17,11 +18,16 @@ export default (state, action) => {
                 tasks: [...state.tasks, action.payload],
                 errortask: false
             }
-        case VALIDATE_TASK  :
+        case VALIDATE_TASK:
             return {
                 ...state,
                 errortask: true
-            }  
+            }
+        case DELETE_TASK: 
+            return {
+                ...state,
+                tasks: state.tasks.filter(task => task.id !== action.payload)
+            }     
             
         default:
             return state;
