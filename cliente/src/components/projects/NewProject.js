@@ -30,7 +30,7 @@ const NewProject = () => {
         e.preventDefault();
 
         //Validacion
-        if( name == '') {
+        if( name === '') {
             showError();
             return;
         }
