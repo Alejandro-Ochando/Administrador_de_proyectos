@@ -6,22 +6,23 @@ import {
     TASK_PROJECT,
     ADD_TASK,
     VALIDATE_TASK, 
-    DELETE_TASK
+    DELETE_TASK,
+    STATE_TASK
 } from '../../types/index';
 
 const TaskState = props => {
     const initialState = {
         tasks: [
-            { id: 0, name: 'Agregar el front', estate: true, projectId: 1 },
-            { id: 1, name: 'Agregar el front', estate: true, projectId: 1 },
-            { id: 2, name: 'Agregar el bakend', estate: true, projectId: 2 },
-            { id: 3, name: 'Testing app', estate: false, projectId: 3 },
-            { id: 4, name: 'Deploy', estate: false, projectId: 4 },
-            { id: 5, name: 'Agregar el front', estate: true, projectId: 1 },
-            { id: 6, name: 'Agregar el front', estate: true, projectId: 1 },
-            { id: 7, name: 'Agregar el bakend', estate: true, projectId: 2 },
-            { id: 8, name: 'Testing app', estate: false, projectId: 3 },
-            { id: 9, name: 'Deploy', estate: false, projectId: 4 }
+            { id: 0, name: 'Agregar el front', state: true, projectId: 1 },
+            { id: 1, name: 'Agregar el front', state: true, projectId: 1 },
+            { id: 2, name: 'Agregar el bakend', state: true, projectId: 2 },
+            { id: 3, name: 'Testing app', state: false, projectId: 3 },
+            { id: 4, name: 'Deploy', state: false, projectId: 4 },
+            { id: 5, name: 'Agregar el front', state: true, projectId: 1 },
+            { id: 6, name: 'Agregar el front', state: true, projectId: 1 },
+            { id: 7, name: 'Agregar el bakend', state: true, projectId: 2 },
+            { id: 8, name: 'Testing app', state: false, projectId: 3 },
+            { id: 9, name: 'Deploy', state: false, projectId: 4 }
         ],
         tasksproject: null,
         errortask: false
@@ -63,6 +64,15 @@ const TaskState = props => {
         })
     }
 
+    // Cambia el estado de cada tarea 
+    const changeStateTask = task => {
+        dispatch({
+            type: STATE_TASK,
+            payload: task
+
+        })
+    }
+
     return (
         <taskContext.Provider
             value={{
@@ -72,7 +82,8 @@ const TaskState = props => {
                 getTasks,
                 addTask,
                 validateTask,
-                deleteTask
+                deleteTask,
+                changeStateTask
             }}
         >
             {props.children}
