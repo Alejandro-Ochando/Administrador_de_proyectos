@@ -92,6 +92,13 @@ const TaskState = props => {
         })
     }
 
+    //Elimina la tarea seleccionada
+    const cleanTask = () => {
+        dispatch({
+            type: CLEAN_TASK
+        })
+    }
+
     return (
         <taskContext.Provider
             value={{
@@ -105,7 +112,8 @@ const TaskState = props => {
                 deleteTask,
                 changeStateTask,
                 saveTaskCurrent,
-                updateTask
+                updateTask,
+                cleanTask
             }}
         >
             {props.children}

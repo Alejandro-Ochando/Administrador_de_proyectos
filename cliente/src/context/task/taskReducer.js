@@ -1,5 +1,6 @@
 import { 
     ADD_TASK,
+    CLEAN_TASK,
     DELETE_TASK,
     STATE_TASK,
     TASK_CURRENT,
@@ -42,7 +43,12 @@ export default (state, action) => {
                 ...state,
                 taskselect: action.payload
             }             
-            
+        case  CLEAN_TASK:
+            return {
+                ...state,
+                taskselect: null
+            } 
+
         default:
             return state;
     }
