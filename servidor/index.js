@@ -1,6 +1,8 @@
 const express = require('express');
 const connectDB = require('./config/db');
 
+const chalk = require('chalk');
+
 // Crear el servidor
 const app = express();
 
@@ -20,5 +22,5 @@ app.get('/', (req, res) => {
 
 // Arranque
 app.listen(PORT, () => {
-    console.log('El servidor esta funcionando en el puerto ', PORT);
+    console.log(chalk.cyan('El servidor esta funcionando en el puerto '), PORT);
 });

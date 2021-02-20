@@ -1,6 +1,8 @@
 const mongoose = require('mongoose');
 require('dotenv').config({ path: 'variables.env' });
 
+const chalk = require('chalk');
+
 const connectDB = async () => {
     try {
         await mongoose.connect(process.env.DB_MONGO, {
@@ -8,7 +10,7 @@ const connectDB = async () => {
             useUnifiedTopology: true,
             useFindAndModify: false
         });
-        console.log("DB conectada");
+        console.log(chalk.cyan("DB conectada"));
     } catch {
         console.log(error);
         process.exit(1); //Detener la app
