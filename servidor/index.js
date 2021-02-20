@@ -20,6 +20,9 @@ app.get('/', (req, res) => {
 });
 */
 
+// Importar rutas
+app.use('/api/users', require('./routes/users'));
+
 // Arranque
 app.listen(PORT, () => {
     console.log(chalk.cyan('El servidor esta funcionando en el puerto '), PORT);
