@@ -12,13 +12,8 @@ connectDB();
 // Puerto de la app
 const PORT = process.env.PORT || 4000;
 
-// Definir la pagina principal
-// Probando si funciona el server.
-/*
-app.get('/', (req, res) => {
-    res.send('Hola Mundo')
-});
-*/
+// Habilitar express.json
+app.use( express.json({ extended: true }));
 
 // Importar rutas
 app.use('/api/users', require('./routes/users'));
