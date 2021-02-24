@@ -17,6 +17,7 @@ app.use( express.json({ extended: true }));
 
 // Importar rutas
 app.use('/api/users', require('./routes/users'));
+app.use('/auth', require('./routes/auth'));
 
 // Arranque
 app.listen(PORT, () => {
