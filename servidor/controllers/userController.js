@@ -21,7 +21,7 @@ exports.createUser = async (req, res) => {
 
         if( user ) {
             return res.status(400).json({ msg: 'El usuario ya existe'});
-        }
+        };
         
         //Crea el usuario
         user = new User(req.body);
