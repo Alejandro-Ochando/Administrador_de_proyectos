@@ -7,14 +7,14 @@ module.exports = function(req, res, next) {
     // Revisar si no hay token
     if(!token) {
         return res.status(401).json({ msg: "No hay token, permiso no valido"});
-    };
+    }
 
     // Validar el token
     try {
-        const encrypt = jwt.verify(token, process.env.SECRET);
-        req.user = encrypt.user;
+        const crypt = jwt.verify(token, process.env.SECRET);
+        req.user = crypt.user;
         next();
     } catch (error) {
-        res.status(401).json({ msg: "Token no valido" });
+        res.status(401).json({msg: "Token no valido"});
     };
 };

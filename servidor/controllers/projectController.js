@@ -9,7 +9,7 @@ exports.createProject = async (req, res ) => {
         return res.status(400).json({ errors: errors.array() });
     };
 
-    
+
     try {
         //Crear un nuevo proyecto
         const project = new Project(req.body);
@@ -24,5 +24,19 @@ exports.createProject = async (req, res ) => {
     } catch (error) {
         console.log(error);
         res.status(500).send('Hubo un error');
+    };
+};
+
+// Obtiene todos los proyectos del usuario actual
+exports.getProjects = async (req, res) => {
+
+    try {
+        const projects = await Project.find({owner: req.user.id})
+            .sort({owner: -1});
+
+        res.json({ projects });
+    } catch (error) {
+        console.log(error);
+        res.status(500).send('hubo un error ');
     };
 };
