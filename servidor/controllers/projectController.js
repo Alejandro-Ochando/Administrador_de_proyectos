@@ -1,10 +1,11 @@
 const Project = require('../models/Project');
-const { validationResult } = require('express-validator')
+const { validationResult } = require('express-validator');
 
 exports.createProject = async (req, res ) => {
     
     // revisar si hay errores
     const errors = validationResult(req);
+
     if ( !errors.isEmpty() ) {
         return res.status(400).json({ errors: errors.array() });
     };
@@ -81,7 +82,6 @@ exports.updateProject = async (req, res) => {
 
         res.json({ project });
 
-
     } catch (error) {
         console.log(error);
         res.status(500).send('Error en el servidor');
@@ -114,5 +114,4 @@ exports.deleteProject = async (req, res) => {
         console.log(error);
         res.status(500).send('Error en el servidor');
     };
-
 };
